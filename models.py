@@ -9,7 +9,7 @@ db = SQLAlchemy(app)
 
 class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    date = db.Column('Date', db.String())
+    date = db.Column('Date', db.DateTime())
     title = db.Column('Title', db.String())
     description = db.Column('Short Description', db.String())
     skills = db.Column('Skills Practiced', db.String())
