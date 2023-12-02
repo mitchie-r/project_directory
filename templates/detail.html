@@ -2,9 +2,9 @@
 
 {%block content %}
         <section class="header">
-            <h1>{{ project.title }}</h1>
-            <p>{{ project.date }}</p>
-            <a href="{{ project.link }}" class="github-btn">
+            <h1>{{ project_id.title }}</h1>
+            <p>{{ project_id.date }}</p>
+            <a href="{{ project_id.link }}" class="github-btn">
                 <i class="fab fa-github"></i>
                 View on GitHub
             </a>
@@ -19,7 +19,7 @@
         </section>
         <section id="project-desc">
             <div id="triangle5"></div>
-            <h2>{{ project.description }}</h2>
+            <h2>{{ project_id.description }}</h2>
             <p>
                 Lemon drops muffin macaroon pastry sweet muffin soufflé. 
                 Chocolate cake sesame snaps gummi bears tiramisu toffee. 

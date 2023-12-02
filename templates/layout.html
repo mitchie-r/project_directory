@@ -34,10 +34,9 @@
                           Projects
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="https://github.com/mitchredd77/Number_Guessing_Game">Number Guessing Game</a></li>
-                          <li><a class="dropdown-item" href="https://github.com/mitchredd77/Basketball_Stats_Tool">Basket Ball Stats Tool</a></li>
-                          <li><a class="dropdown-item" href="https://github.com/mitchredd77/Phrase_Hunter">Phrase Hunter</a></li>
-                          <li><a class="dropdown-item" href="https://github.com/mitchredd77/store_inventory">Store Inventory</a></li>
+                          {% for project in projects %}
+                          <li><a class="dropdown-item" href="{{ project.link }}">{{ project.title }}</a></li>
+                          {% endfor %}
                         </ul>
                       </li>
                       <li class="nav-item">
@@ -60,7 +59,7 @@
                 <a href="https://twitter.com/MitchReddoch">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/mitchell-reddoch-69071515a/">
+                <a href="https://www.linkedin.com/in/mitchellreddoch/">
                     <i class="fab fa-github"></i>
                 </a>
                 <a href="https://www.linkedin.com/in/mitchell-reddoch-69071515a/">
