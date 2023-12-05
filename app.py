@@ -43,7 +43,8 @@ def clean_skills(projects):
             continue
         else:
             new_comb_skills.append(skill)
-    new_comb_skills = ", ".join(new_comb_skills)
+    print(new_comb_skills)
+    #new_comb_skills = ", ".join(new_comb_skills)
     return new_comb_skills
 
 # index route root

@@ -27,8 +27,12 @@
         <section id="skills">
             <i class="fas fa-laptop-code"></i>
             <h2>Skills</h2>
-            <ul>
-              {{ combined_skills }}  
+             <ul class="project-skills">
+                <div>
+                    {% for skill in combined_skills %}
+                    <li>{{ skill }}</li>
+                    {% endfor %}
+                 </div>
             </ul>
         </section>
         <section id="projects">
@@ -45,9 +49,10 @@
                     </a>
                     <p>
                         {{ project.description }}
-                    <p>
-                            Skills: {{ combined_skills }}
                     </p>
+                    <p>  
+                     {{ project.skills }}
+                    </p> 
                 </div>
                 {% endfor %}
         </section>
@@ -55,7 +60,7 @@
             <i class="fas fa-paper-plane"></i>
             <h2>Contact Me</h2>
             <p>
-                Feel free to reach out anytime, my email is below.
+                Feel free to contact me at the email below.
             </p>
             <p>
                 <i class="fas fa-envelope"></i>
