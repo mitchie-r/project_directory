@@ -13,7 +13,7 @@ class Project(db.Model):
     title = db.Column('Title', db.String())
     description = db.Column('Short Description', db.String())
     skills = db.Column('Skills Practiced', db.String())
-    link = db.Column('GitHub link', db.String())
+    url = db.Column('GitHub link', db.String())
 
     def __repr__(self):
         return f'''<Title: {self.title} Description: {self.description}
