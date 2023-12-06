@@ -85,8 +85,7 @@ def detail(id):
     project = Project.query.get_or_404(id)
     skills = list((project.skills).split(","))
     for index in range(len(skills)):
-        skills[index] = (skills[index].lstrip(" and "))
-    print(skills)        
+        skills[index] = (skills[index].lstrip(" and "))     
     return render_template('detail.html', project=project, projects=projects, skills=skills)
 
 # route to edit an individual project
