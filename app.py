@@ -3,28 +3,32 @@ from flask import (render_template, url_for,
 
 from models import db, app, Project
 
-import datetime
+import datetime, re
 
 # Cleans the date entry to a datetime that can be added to the db
 
 
 def clean_date(date):
-    date_split = date.split('/')
-    month = int(date_split[0])
-    day = int(date_split[1])
-    year = int(date_split[2])
-    datetime_val = datetime.datetime(year, month, day)
-    return datetime_val
+    date_str = str(date)
+    date_object = datetime.datetime.strptime(date_str, "%Y-%m-%d")
+    return date_object
+
 
 # Cleans the entry during editing a db entry
 
 
 def clean_date_edit(datetime_val):
-    datetime_string = datetime_val
-    datetime_object = datetime.datetime.strptime(
-        datetime_string, "%Y-%m-%d %H:%M:%S")
-    return datetime_object
+    datetime_val = str(datetime_val)
+    pattern = r"00:00:00"
+    match = re.search(pattern, datetime_val)
 
+    if match:
+        datetime_string = datetime_val
+        datetime_object = datetime.datetime.strptime(
+        datetime_string, "%Y-%m-%d %H:%M:%S")
+        return datetime_object
+    else:
+        return clean_date(datetime_val)
 # To list skills on  main page and not repeat entries
 
 
@@ -93,7 +97,7 @@ def edit_project(id):
         project.title = request.form['title']
         project.date = request.form['date']
         project.date = clean_date_edit(project.date)
-        project.description = request.form['desc']
+        project.description = request.form['description']
         project.skills = request.form['skills']
         project.url = request.form['github']
         db.session.commit()
