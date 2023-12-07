@@ -104,6 +104,8 @@ def edit_project(id):
         project.url = request.form['github']
         db.session.commit()
         return redirect(url_for('index'))
+    project.date = project.date.date()
+    project.date = project.date.strftime("%Y-%m-%d")
     return render_template('edit.html', project=project, projects=projects)
 
 # route to delete project
